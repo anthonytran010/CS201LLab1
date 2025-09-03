@@ -1,8 +1,8 @@
 package CS201LLab1;
 import java.util.Scanner;
-//NAME:  add your name here
-//DATE:  add the current date of your lab class
-//LAB TIME: add the time of your lab class
+//NAME:  Anthony Tran
+//DATE:  September 3, 2025
+//LAB TIME: 12 pm - 2:30pm
 //PROGRAM:
 public class Main {
     public static void main(String[] args) {
@@ -27,9 +27,17 @@ public class Main {
             System.out.println("Enter the 4 values separated by spaces: ");
             x1 = input.nextInt();
             y1 = input.nextInt();
+            x2 = input.nextInt();
+            y2 = input.nextInt();
 
             if (!((x1 >= -10 && x1 <= 10) &&
                 (y1 >= -10 && y1 <= 10))){
+                System.out.println("A value entered was not valid"); 
+                return;                       
+            }
+
+            if (!((x2 >= -10 && x2 <= 10) &&
+                (y2 >= -10 && y2 <= 10))){
                 System.out.println("A value entered was not valid"); 
                 return;                       
             }
@@ -39,6 +47,8 @@ public class Main {
         else if (choice == 'g') {
             x1 = (int)(Math.random() * 21) - 10;
             y1 = (int)(Math.random() * 21) - 10;
+            x2 = (int)(Math.random() * 21) - 10;
+            y2 = (int)(Math.random() * 21) - 10;
          }
         else {
             System.out.println("The value " + choice + " is not a valid option!");
@@ -46,12 +56,21 @@ public class Main {
         }
         //print both points
         System.out.println("Point 1: (" + x1 + ", " + y1 + ")");
+        System.out.println("Point 2: (" + x2 + ", " + y2 + ")");
 
         //calculate dist1 & dist2 (the distance from each point to the origin)
         dist1 = Math.pow(Math.pow((x1-0),2) + Math.pow((y1-0),2),.5);
+        System.out.println("Distance 1: " + dist1);
+        dist2 = Math.pow(Math.pow((x2-0),2) + Math.pow((21-0),2),.5);
+        System.out.println("Distance 2: " + dist2);
 
         //determine which is distance closer to the origin and print
-
+        if (dist1 < dist2) {
+            System.out.println("Distance 1 is closer to the orgin.");
+        }
+        else {
+            System.out.println("Distance 2 is closer to the origin.");
+        }
 
         //close scanner
         input.close();
